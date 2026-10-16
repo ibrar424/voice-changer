@@ -1,0 +1,13 @@
+.gradle/
+.idea/
+local.properties
+**/build/
+.env
+*.jks
+*.keystore
+
+.env.*
+!.env.example
+__pycache__/
+.venv/
+*.apk
