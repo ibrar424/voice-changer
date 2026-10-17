@@ -1,6 +1,6 @@
 import os
 import requests
-from flask import Flask, request, Response, jsonify
+from flask import Flask, request, Response, jsonify, render_template
 app = Flask(__name__)
 app.config['MAX_CONTENT_LENGTH'] = 50 * 1024 * 1024
 @app.post('/convert')
@@ -17,3 +17,7 @@ def convert():
     except requests.RequestException: return jsonify(error='Upstream connection failed'), 502
 @app.get('/health')
 def health(): return jsonify(status='ok')
+
+@app.get('/')
+def home():
+    return render_template('index.html')
